@@ -1,3 +1,5 @@
+# this code is not my own it was adapted from Ayush Thukar
+
 import torch
 import pytorch_lightning as pl
 
@@ -45,7 +47,7 @@ class Food101DataModule(pl.LightningDataModule):
 
     def setup(self, stage = None):
         dataset = Food101(root = self.data_dir, download = True, split = "train") 
-        self.train, self.val = torch.utils.data.random_split(dataset, [60600, 15150])
+        self.train, self.val = torch.utils.data.random_split(dataset, [60600, 15150]) #60600, 15150 is specific to food101
         self.test = Food101(root=self.data_dir, download = True, split = "test")
         self.test = torch.utils.data.random_split(self.test, [len(self.test)])[0]
         
@@ -56,14 +58,17 @@ class Food101DataModule(pl.LightningDataModule):
     def train_dataloader(self):
         return torch.utils.data.DataLoader(
             self.train, batch_size=self.batch_size, shuffle=True, num_workers=16
-        )
+            )
 
     def val_dataloader(self):
-        return torch.utils.data.DataLoader(self.val, batch_size=self.batch_size, num_workers=16)
+        return torch.utils.data.DataLoader(
+            self.val, batch_size=self.batch_size, num_workers=16
+            )
 
     def test_dataloader(self):
-        return torch.utils.data.DataLoader(self.test, batch_size=self.batch_size, num_workers=16)
-
+        return torch.utils.data.DataLoader(
+            self.test, batch_size=self.batch_size, num_workers=16
+            )
 
     
         
