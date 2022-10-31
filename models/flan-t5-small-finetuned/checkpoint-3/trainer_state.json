@@ -12,9 +12,9 @@
       "eval_bleu": 0.9899,
       "eval_gen_len": 9.7,
       "eval_loss": NaN,
-      "eval_runtime": 0.3266,
-      "eval_samples_per_second": 30.622,
-      "eval_steps_per_second": 3.062,
+      "eval_runtime": 0.3421,
+      "eval_samples_per_second": 29.235,
+      "eval_steps_per_second": 2.923,
       "step": 3
     }
   ],
