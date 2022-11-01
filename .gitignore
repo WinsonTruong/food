@@ -1,3 +1,9 @@
+# custom
+.ckpt
+.pth
+.json
+.bin
+
 *.swp
 .python-version
 wandb
