@@ -3,6 +3,7 @@
 *.pth
 *.json
 *.bin
+*.pt
 
 *.swp
 .python-version
